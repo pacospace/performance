@@ -38,13 +38,13 @@ print("DEVICE set to %s" % _ARGS_DEVICE, file=sys.stderr)
 # Number of repetitions.
 # Options:
 #   A positive integer.
-_ARGS_REPS = int(os.getenv('MATMUL_REPS', 20000))
+_ARGS_REPS = int(os.getenv('MATMUL_REPS', 2000))
 print("REPS set to %s" % _ARGS_REPS, file=sys.stderr)
 
 # Size of matrix.
 # Options:
 #   A positive integer.
-_ARGS_MATRIX_SIZE = int(os.getenv('MATMUL_MATRIX_SIZE', 512))
+_ARGS_MATRIX_SIZE = int(os.getenv('MATMUL_MATRIX_SIZE', 256))
 print("MATRIX size set to %s" % _ARGS_MATRIX_SIZE, file=sys.stderr)
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
