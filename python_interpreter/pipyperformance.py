@@ -37,15 +37,15 @@ def bench():
     suite, errors = run_benchmarks(bench_funcs, should_run, cmd_prefix, options)
     suite.dump(options.output)
 
-original_stdout = sys.stdout
-sys.stdout = os.fdopen(os.dup(sys.stderr.fileno()), sys.stdout.mode)
-sys.argv.extend(["run", "--python=python3", "-o", "output.json", "-b", "2n3"])
+sys.argv.extend(["run","--python=python3", "-o", "output.json", "-b", "chameleon"])
 try:
     bench()
 except SystemExit as exc:
     if int(str(exc)) != 0:
         print("pyperformance did not finish successfully: %d", int(exc), file=sys.stderr)
 
+original_stdout = sys.stdout
+sys.stdout = os.fdopen(os.dup(sys.stderr.fileno()), sys.stdout.mode)
 with open("output.json", "r") as output:
     benchmarks = json.load(output)
 
